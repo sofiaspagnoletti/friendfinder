@@ -5,7 +5,7 @@
 Friend finder is an application that works as a dating app. This full-stack site takes the results from the user's surveys, then compare their ansewrs with those from other users. The app will the display the name and picture of the user with the best overall match. 
 
 ### Prerequisites
-This app is hosted in Heroku, check the Friend Finder here:https://sofiafriendfinder.herokuapp.com/
+This app is hosted in Heroku, check the Friend Finder here: https://sofiafriendfinder.herokuapp.com/
 
 ### Built With
 Express, Heroku
