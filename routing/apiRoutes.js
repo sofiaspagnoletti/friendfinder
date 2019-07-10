@@ -14,15 +14,29 @@ module.exports = function(app) {
         console.log(newFriend);
         friendsData.push(newFriend);
         res.json(newFriend);
+        findMatch(newFriend, friendsData);
       });
-    
-  
   };
 
-// function getSum(total, scores) {
-//     const scores = parseInt(friendArray.scores);
-//     return total + Math.round(scores);
-// }
+  function calculateMatchingScore(newPersonAnswers, possibleMatchPersonAnswers) {
+    let totalDifference = 0;
+    for (let i = 0; i < newPersonAnswers.length; i++) {
+      totalDifference += Math.abs(newPersonAnswers[i] - possibleMatchPersonAnswers[i]);
+    }
+    return totalDifference;
+  }
 
-// getSum();
+  function findMatch(newFriend, friendsData) {
+    let minDifference = null; 
+    let minDifferenceFriend = null; 
+    for (let i = 0; i < friendsData.length; i++) {
+      const totalDifference = calculateMatchingScore(newFriend.scores, friendsData[i].scores);
+      if (minDifference === null || totalDifference < minDifference) {
+        minDifference = totalDifference;
+        minDifferenceFriend = friendsData[i];
+      }
+    }
+    return minDifferenceFriend; 
+  }
 
+  

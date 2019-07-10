@@ -19,9 +19,4 @@ app.listen(PORT, function() {
 
 
 
-  
-// agarrar la info submiteada
-// guardar la info submiteada
-// leer la informacion para compararlos
-// funcion para comparar con los otros 
 
