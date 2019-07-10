@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -166,14 +167,14 @@
         <br>
         <footer class="footer">
             <div class="container">
-                <p><a href="/api/friendsList">API Friends List</a> | <a
+                <p><a href="/api/friends">API Friends List</a> | <a
                         href="https://github.com/sofiaspagnoletti/friendfinder">GitHub Repo</a>
             </div>
         </footer>
 
     </div>
 
-    <div id="match-result" class="modal" tabindex="-1" role="dialog">
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -217,8 +218,16 @@
             $.post("/api/friends", newFriend)
                 .then(function (data) {
                     console.log("survey.html", data);
-                });
+                    $('#match-name').text(data.name);
+                    $('#match-img').attr("src", data.photo);
+                    $('#myModal').modal("toggle");
+            });
         });
+
+        // $('#myModal').on('shown.bs.modal', function () {
+        //     $('#matchname').trigger(res.json(minDifferenceFriend.name));
+        //     $('#matchphoto').trigger(res.json(minDifferenceFriend.photo));
+        // })
     </script>
 </body>
 </html>

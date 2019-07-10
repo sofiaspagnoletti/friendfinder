@@ -12,9 +12,8 @@ module.exports = function(app) {
     app.post("/api/friends", function(req, res) {
         var newFriend = req.body;
         console.log(newFriend);
+        res.json(findMatch(newFriend, friendsData));
         friendsData.push(newFriend);
-        res.json(newFriend);
-        findMatch(newFriend, friendsData);
       });
   };
 
